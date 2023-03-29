@@ -50,7 +50,7 @@ func (s *Utils) Check() error {
 	}
 
 	s.File = file
-	return nil
+	return err
 }
 
 // WriteToFile writes data to a file

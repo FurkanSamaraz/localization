@@ -3,9 +3,9 @@
   "value": "File",
   "popup": {
     "menuitem": [
-      {"value": "New", "onclick": "CreateNewDoc()"},
+      {"value": "3New", "onclick": "dCreatessNewDoc()"},
       {"value": "Open", "onclick": "OpenDoc()"},
-      {"value": "Cl2ose3ss", "onclick": "CloseDoc()"}
+      {"value": "Close3ss", "onclick": "CloseDossc()"}
     ]
   }
 }}
