@@ -1,8 +1,12 @@
 package storage
 
 import (
+	"encoding/json"
 	"fmt"
+	repository "localization/repository"
+	structures "localization/structures"
 	utils "localization/utils"
+	"log"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -35,6 +39,7 @@ type StorageI interface {
 
 type Storage struct {
 	Utils *utils.Utils
+	Repo  repository.RepositoryInterface
 }
 
 /*
@@ -44,39 +49,6 @@ type Storage struct {
  */
 
 var Appversion = 0
-
-func AutoMaticg(Dir string) int {
-	var s utils.Utils
-	Appversion = 0
-	filepath.WalkDir(Dir, func(path string, d os.DirEntry, err error) error {
-		if err != nil {
-			return err
-		}
-		if d.IsDir() {
-			Appversion = 0
-			s.Check()
-			return nil
-		} else {
-			entries, _ := os.ReadDir(Dir)
-
-			for _, e := range entries {
-
-				V := strconv.Itoa(Appversion)
-				nams := "v" + V + ".json"
-				res1 := strings.Contains(e.Name(), nams)
-
-				if res1 == true {
-					Appversion = Appversion + 1
-				}
-
-			}
-		}
-
-		return nil
-	})
-
-	return Appversion
-}
 
 func (C *Storage) CreateApp(apps []byte, appName string) error {
 	//	var app types.AppStruct
@@ -91,6 +63,42 @@ func (C *Storage) CreateApp(apps []byte, appName string) error {
 	}
 
 	err = s.WriteToFile(string(apps))
+	if err != nil {
+		fmt.Println("not file check")
+	}
+
+	jsonApp, err := json.Marshal(apps)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	Ares, err := C.Repo.Application(structures.Application{
+		Name:        appName,
+		Description: jsonApp,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	Vres, err := C.Repo.Version(structures.Version{
+		Version:  Version,
+		Is_draft: true,
+		Active:   true,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	Lres, err := C.Repo.LatestApp(structures.Latest_App{
+		Name:       appName,
+		App_id:     Ares.Id,
+		Version_id: Vres.Id,
+	})
+
+	fmt.Println(Lres)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	return err
 }
@@ -105,6 +113,8 @@ func (C *Storage) ReadApp(appName string) (string, error) {
 	if err != nil {
 		fmt.Println("Not Read")
 	}
+
+	C.Repo.Application(structures.Application{})
 
 	return result, err
 }
@@ -130,6 +140,9 @@ func (C *Storage) UpdateApp(appName string, apps []byte) error {
 	s.Check()
 
 	err := s.WriteToFile(string(apps))
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	return err
 }
@@ -150,10 +163,43 @@ func (C *Storage) CreateModule(appName string, modulename string, module []byte)
 
 	err := s.Check()
 	if err != nil {
-		fmt.Println("not file check")
+		log.Fatal(err)
 	}
 
 	err = s.WriteToFile(string(module))
+	if err != nil {
+		log.Fatal(err)
+
+	}
+	jsonApp, err := json.Marshal(module)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	result, err := C.Repo.Module(structures.Module{
+		Name:        appName + "/" + modulename,
+		Description: jsonApp,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	Vres, err := C.Repo.Version(structures.Version{
+		Version:  Version,
+		Is_draft: true,
+		Active:   true,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	Lres, err := C.Repo.LatestMod(structures.Latest_Module{
+		Name:       appName + "/" + modulename,
+		Module_id:  result.Id,
+		Version_id: Vres.Id,
+	})
+	fmt.Println(Lres)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	return err
 }
@@ -217,6 +263,36 @@ func (C *Storage) CreateLanguage(appName string, moduleName string, languageName
 
 	err := s.WriteToFile(string(language))
 
+	if err != nil {
+		log.Fatal(err)
+	}
+	jsonApp, err := json.Marshal(language)
+	if err != nil {
+		log.Fatal(err)
+	}
+	result, err := C.Repo.Language(structures.Language{
+		Name:        appName + "/" + moduleName + "/" + languageName,
+		Description: jsonApp,
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	Vres, err := C.Repo.Version(structures.Version{
+		Version:  Version,
+		Is_draft: true,
+		Active:   true,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	Lres, err := C.Repo.LatestLng(structures.Latest_Lang{
+		Name:       appName + "/" + moduleName + "/" + languageName,
+		Lang_id:    result.Id,
+		Version_id: Vres.Id,
+	})
+
+	fmt.Println(Lres)
 	return err
 }
 
@@ -259,4 +335,36 @@ func (C *Storage) UpdateLanguage(appName string, moduleName string, languageName
 
 	return err
 
+}
+func AutoMaticg(Dir string) int {
+	var s utils.Utils
+	Appversion = 0
+	filepath.WalkDir(Dir, func(path string, d os.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() {
+			Appversion = 0
+			s.Check()
+			return nil
+		} else {
+			entries, _ := os.ReadDir(Dir)
+
+			for _, e := range entries {
+
+				V := strconv.Itoa(Appversion)
+				nams := "v" + V + ".json"
+				res := strings.Contains(e.Name(), nams)
+
+				if res {
+					Appversion = Appversion + 1
+				}
+
+			}
+		}
+
+		return nil
+	})
+
+	return Appversion
 }

@@ -1,0 +1,228 @@
+{
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for a Maple Localization API.",
+        "title": "Maple Modules API",
+        "contact": {
+            "name": "API Support",
+            "email": "team@workmaple.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8081",
+    "basePath": "/api/v1",
+    "paths": {
+        "/:app": {
+            "post": {
+                "description": "Pagination CreateAppWithPagination",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "api"
+                ],
+                "summary": "Pagination CreateApp",
+                "operationId": "ApiV1LocalizationCreateAppPagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
+                        "name": "authorization",
+                        "in": "header"
+                    },
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/:app/:module/:language": {
+            "put": {
+                "description": "Pagination UpdateLanguageWithPagination",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "api"
+                ],
+                "summary": "Pagination UpdateLanguage",
+                "operationId": "ApiV1LocalizationUpdateLanguagePagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
+                        "name": "authorization",
+                        "in": "header"
+                    },
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "module",
+                        "name": "module",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "language",
+                        "name": "language",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "Pagination DeleteLanguageWithPagination",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "api"
+                ],
+                "summary": "Pagination DeleteLanguage",
+                "operationId": "ApiV1LocalizationDeleteLanguagePagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
+                        "name": "authorization",
+                        "in": "header"
+                    },
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "module",
+                        "name": "module",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "language",
+                        "name": "language",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            }
+        }
+    }
+}

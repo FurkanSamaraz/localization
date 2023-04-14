@@ -1,7 +1,9 @@
 package endpoints
 
 import (
+	db "localization/config"
 	"localization/controller"
+	repository "localization/repository"
 	storage "localization/storage"
 	utils "localization/utils"
 
@@ -9,7 +11,8 @@ import (
 )
 
 func SetupPoints(app *fiber.App) {
-	mode := storage.Storage{Utils: &utils.Utils{}}
+
+	mode := storage.Storage{Utils: &utils.Utils{}, Repo: repository.RepositoryDB{DB: db.Collection()}}
 	point := controller.LocalizationController{Svc: mode}
 
 	{
