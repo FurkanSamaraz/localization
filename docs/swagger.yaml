@@ -1,40 +1,97 @@
-basePath: /api/v1
-consumes:
-- application/json
-host: localhost:8081
+basePath: /v1
+host: localhost:8080
 info:
-  contact:
-    email: team@workmaple.com
-    name: API Support
-  description: This is a sample server for a Maple Localization API.
-  title: Maple Modules API
+  contact: {}
+  description: This is a sample API
+  title: My API
   version: "1.0"
 paths:
   /:app:
-    post:
+    delete:
       consumes:
       - application/json
-      description: Pagination CreateAppWithPagination
-      operationId: ApiV1LocalizationCreateAppPagination
+      description: Pagination DeleteApp
+      operationId: ApiV1LocalizationDeleteAppPagination
       parameters:
-      - description: WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=
-        in: header
-        name: authorization
-        type: string
       - description: app
-        in: body
+        in: path
         name: app
         required: true
-        schema:
-          type: string
+        type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items:
-              type: integer
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination DeleteApp
+      tags:
+      - app/
+    get:
+      consumes:
+      - application/json
+      description: Pagination ReadApp
+      operationId: ApiV1LocalizationReadAppPagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination ReadApp
+      tags:
+      - app/
+    post:
+      consumes:
+      - application/json
+      description: Pagination CreateApp
+      operationId: ApiV1LocalizationCreateAppPagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
             type: array
         "400":
           description: Bad Request
@@ -47,44 +104,212 @@ paths:
           schema: {}
       summary: Pagination CreateApp
       tags:
-      - api
-  /:app/:module/:language:
-    delete:
+      - app/
+    put:
       consumes:
       - application/json
-      description: Pagination DeleteLanguageWithPagination
-      operationId: ApiV1LocalizationDeleteLanguagePagination
+      description: Pagination UpdateApp
+      operationId: ApiV1LocalizationUpdateAppPagination
       parameters:
-      - description: WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=
-        in: header
-        name: authorization
-        type: string
       - description: app
-        in: body
+        in: path
         name: app
         required: true
-        schema:
-          type: string
-      - description: module
-        in: body
-        name: module
-        required: true
-        schema:
-          type: string
-      - description: language
-        in: body
-        name: language
-        required: true
-        schema:
-          type: string
+        type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items:
-              type: integer
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination UpdateApp
+      tags:
+      - app/
+  /:app/:module:
+    delete:
+      consumes:
+      - application/json
+      description: Pagination DeleteModule
+      operationId: ApiV1LocalizationDeleteModulePagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      - description: module
+        in: path
+        name: module
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination DeleteModule
+      tags:
+      - app/module
+    get:
+      consumes:
+      - application/json
+      description: Pagination ReadModule
+      operationId: ApiV1LocalizationReadModulePagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      - description: module
+        in: path
+        name: module
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination ReadModule
+      tags:
+      - app/module
+    post:
+      consumes:
+      - application/json
+      description: Pagination CreateModule
+      operationId: ApiV1LocalizationCreateModulePagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      - description: module
+        in: path
+        name: module
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination CreateModule
+      tags:
+      - app/module
+    put:
+      consumes:
+      - application/json
+      description: Pagination UpdateModule
+      operationId: ApiV1LocalizationUpdateModulePagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      - description: module
+        in: path
+        name: module
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination UpdateModule
+      tags:
+      - app/module
+  /:app/:module/:language:
+    delete:
+      consumes:
+      - application/json
+      description: Pagination DeleteLanguage
+      operationId: ApiV1LocalizationDeleteLanguagePagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      - description: module
+        in: path
+        name: module
+        required: true
+        type: string
+      - description: language
+        in: path
+        name: language
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
             type: array
         "400":
           description: Bad Request
@@ -97,43 +322,117 @@ paths:
           schema: {}
       summary: Pagination DeleteLanguage
       tags:
-      - api
-    put:
+      - app/module/language
+    get:
       consumes:
       - application/json
-      description: Pagination UpdateLanguageWithPagination
-      operationId: ApiV1LocalizationUpdateLanguagePagination
+      description: Pagination ReadLanguage
+      operationId: ApiV1LocalizationReadLanguagePagination
       parameters:
-      - description: WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=
-        in: header
-        name: authorization
-        type: string
       - description: app
-        in: body
+        in: path
         name: app
         required: true
-        schema:
-          type: string
+        type: string
       - description: module
-        in: body
+        in: path
         name: module
         required: true
-        schema:
-          type: string
+        type: string
       - description: language
-        in: body
+        in: path
         name: language
         required: true
-        schema:
-          type: string
+        type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items:
-              type: integer
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination ReadLanguage
+      tags:
+      - app/module/language
+    post:
+      consumes:
+      - application/json
+      description: Pagination CreateLanguage
+      operationId: ApiV1LocalizationCreateLanguagePagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      - description: module
+        in: path
+        name: module
+        required: true
+        type: string
+      - description: language
+        in: path
+        name: language
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Pagination CreateLanguage
+      tags:
+      - app/module/language
+    put:
+      consumes:
+      - application/json
+      description: Pagination UpdateLanguage
+      operationId: ApiV1LocalizationUpdateLanguagePagination
+      parameters:
+      - description: app
+        in: path
+        name: app
+        required: true
+        type: string
+      - description: module
+        in: path
+        name: module
+        required: true
+        type: string
+      - description: language
+        in: path
+        name: language
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items: {}
             type: array
         "400":
           description: Bad Request
@@ -146,10 +445,5 @@ paths:
           schema: {}
       summary: Pagination UpdateLanguage
       tags:
-      - api
-produces:
-- application/json
-schemes:
-- http
-- https
+      - app/module/language
 swagger: "2.0"

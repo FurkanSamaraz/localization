@@ -11,21 +11,15 @@ type LocalizationController struct {
 	Svc storage.Storage
 }
 
-/*
- * ===============
- * App
- * ===============
- */
 // ShowAccount godoc
 // @Summary      Pagination CreateApp
-// @Description  Pagination CreateAppWithPagination
-// @Tags         api
+// @Description  Pagination CreateApp
+// @Tags         app/
 // @Id					  ApiV1LocalizationCreateAppPagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Success      200  {array}  byte
+// @Param app path string true "app"
+// @Success      200  {array} storage.StorageI.CreateApp(bod, appName)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
@@ -53,19 +47,18 @@ func Json(data string) interface{} {
 
 // ShowAccount godoc
 // @Summary      Pagination ReadApp
-// @Description  Pagination ReadAppWithPagination
-// @Tags         api
+// @Description  Pagination ReadApp
+// @Tags         app/
 // @Id					  ApiV1LocalizationReadAppPagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Success      200  {array}  byte
+// @Param app path string true "app"
+// @Param app  path string true "app"
+// @Success      200  {array}  storage.StorageI.ReadApp(appName)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app [get]
-
 func (l *LocalizationController) ReadApp(c *fiber.Ctx) error {
 	appName := c.Params("app")
 
@@ -83,19 +76,17 @@ func (l *LocalizationController) ReadApp(c *fiber.Ctx) error {
 
 // ShowAccount godoc
 // @Summary      Pagination DeleteApp
-// @Description  Pagination DeleteAppWithPagination
-// @Tags         api
+// @Description  Pagination DeleteApp
+// @Tags         app/
 // @Id					  ApiV1LocalizationDeleteAppPagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Success      200  {array}  storage.StorageI.DeleteApp(appName)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app [delete]
-
 func (l *LocalizationController) DeleteApp(c *fiber.Ctx) error {
 	appName := c.Params("app")
 	err := l.Svc.DeleteApp(appName)
@@ -110,19 +101,17 @@ func (l *LocalizationController) DeleteApp(c *fiber.Ctx) error {
 
 // ShowAccount godoc
 // @Summary      Pagination UpdateApp
-// @Description  Pagination UpdateAppWithPagination
-// @Tags         api
+// @Description  Pagination UpdateApp
+// @Tags         app/
 // @Id					  ApiV1LocalizationUpdateAppPagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Success      200  {array}  storage.StorageI.UpdateApp(bod, appName)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app [put]
-
 func (l *LocalizationController) UpdateApp(c *fiber.Ctx) error {
 	bod := c.Body()
 	appName := c.Params("app")
@@ -137,28 +126,20 @@ func (l *LocalizationController) UpdateApp(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(err)
 }
 
-/*
- * ===============
- * Module
- * ===============
- */
-
 // ShowAccount godoc
 // @Summary      Pagination CreateModule
-// @Description  Pagination CreateModuleWithPagination
-// @Tags         api
+// @Description  Pagination CreateModule
+// @Tags         app/module
 // @Id					  ApiV1LocalizationCreateModulePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Param module body string true "module"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Param module  path string true "module"
+// @Success      200  {array}  storage.StorageI.CreateModule(appName, moduleName, module)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module [post]
-
 func (l *LocalizationController) CreateModule(c *fiber.Ctx) error {
 	module := c.Body()
 	appName := c.Params("app")
@@ -176,20 +157,18 @@ func (l *LocalizationController) CreateModule(c *fiber.Ctx) error {
 
 // ShowAccount godoc
 // @Summary      Pagination ReadModule
-// @Description  Pagination ReadModuleWithPagination
-// @Tags         api
+// @Description  Pagination ReadModule
+// @Tags         app/module
 // @Id					  ApiV1LocalizationReadModulePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Param module body string true "module"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Param module  path string true "module"
+// @Success      200  {array}  storage.StorageI.ReadModule(appName, moduleName)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module [get]
-
 func (l *LocalizationController) ReadModule(c *fiber.Ctx) error {
 
 	appName := c.Params("app")
@@ -209,20 +188,18 @@ func (l *LocalizationController) ReadModule(c *fiber.Ctx) error {
 
 // ShowAccount godoc
 // @Summary      Pagination DeleteModule
-// @Description  Pagination DeleteModuleWithPagination
-// @Tags         api
+// @Description  Pagination DeleteModule
+// @Tags         app/module
 // @Id					  ApiV1LocalizationDeleteModulePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Param module body string true "module"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Param module  path string true "module"
+// @Success      200  {array}  storage.StorageI.DeleteModule(appName, moduleName)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module [delete]
-
 func (l *LocalizationController) DeleteModule(c *fiber.Ctx) error {
 
 	appName := c.Params("app")
@@ -240,20 +217,18 @@ func (l *LocalizationController) DeleteModule(c *fiber.Ctx) error {
 
 // ShowAccount godoc
 // @Summary      Pagination UpdateModule
-// @Description  Pagination UpdateModuleWithPagination
-// @Tags         api
+// @Description  Pagination UpdateModule
+// @Tags         app/module
 // @Id					  ApiV1LocalizationUpdateModulePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Param module body string true "module"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Param module  path string true "module"
+// @Success      200  {array}  storage.StorageI.UpdateModule(appName, moduleName, module)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module [put]
-
 func (l *LocalizationController) UpdateModule(c *fiber.Ctx) error {
 	module := c.Body()
 	appName := c.Params("app")
@@ -269,29 +244,21 @@ func (l *LocalizationController) UpdateModule(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(err)
 }
 
-/*
- * ===============
- * Language
- * ===============
- */
-
 // ShowAccount godoc
 // @Summary      Pagination CreateLanguage
-// @Description  Pagination CreateLanguageWithPagination
-// @Tags         api
+// @Description  Pagination CreateLanguage
+// @Tags         app/module/language
 // @Id					  ApiV1LocalizationCreateLanguagePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Param module body string true "module"
-// @Param language body string true "language"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Param module  path string true "module"
+// @Param language  path string true "language"
+// @Success      200  {array}  storage.StorageI.CreateLanguage(appName, moduleName, languageName, language)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module/:language [post]
-
 func (l *LocalizationController) CreateLanguage(c *fiber.Ctx) error {
 
 	language := c.Body()
@@ -311,21 +278,19 @@ func (l *LocalizationController) CreateLanguage(c *fiber.Ctx) error {
 
 // ShowAccount godoc
 // @Summary      Pagination ReadLanguage
-// @Description  Pagination ReadLanguageWithPagination
-// @Tags         api
+// @Description  Pagination ReadLanguage
+// @Tags         app/module/language
 // @Id					  ApiV1LocalizationReadLanguagePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Param module body string true "module"
-// @Param language body string true "language"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Param module  path string true "module"
+// @Param language  path string true "language"
+// @Success      200  {array}  storage.StorageI.ReadLanguage(appName, moduleName, languageName)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module/:language [get]
-
 func (l *LocalizationController) ReadLanguage(c *fiber.Ctx) error {
 	appName := c.Params("app")
 	moduleName := c.Params("module")
@@ -344,16 +309,15 @@ func (l *LocalizationController) ReadLanguage(c *fiber.Ctx) error {
 
 // ShowAccount godoc
 // @Summary      Pagination DeleteLanguage
-// @Description  Pagination DeleteLanguageWithPagination
-// @Tags         api
+// @Description  Pagination DeleteLanguage
+// @Tags         app/module/language
 // @Id					  ApiV1LocalizationDeleteLanguagePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Param module body string true "module"
-// @Param language body string true "language"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Param module  path string true "module"
+// @Param language  path string true "language"
+// @Success      200  {array}  storage.StorageI.DeleteLanguage(appName, moduleName, languageName)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
@@ -375,16 +339,15 @@ func (l *LocalizationController) DeleteLanguage(c *fiber.Ctx) error {
 
 // ShowAccount godoc
 // @Summary      Pagination UpdateLanguage
-// @Description  Pagination UpdateLanguageWithPagination
-// @Tags         api
+// @Description  Pagination UpdateLanguage
+// @Tags          app/module/language
 // @Id					  ApiV1LocalizationUpdateLanguagePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
 // @Accept       json
 // @Produce      json
-// @Param app body string true "app"
-// @Param module body string true "module"
-// @Param language body string true "language"
-// @Success      200  {array}  byte
+// @Param app  path string true "app"
+// @Param module  path string true "module"
+// @Param language  path string true "language"
+// @Success      200  {array}  storage.StorageI.UpdateLanguage(appName, moduleName, languageName, language)
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error

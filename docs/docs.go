@@ -6,28 +6,19 @@ import "github.com/swaggo/swag"
 
 const docTemplate = `{
     "schemes": {{ marshal .Schemes }},
-    "consumes": [
-        "application/json"
-    ],
-    "produces": [
-        "application/json"
-    ],
     "swagger": "2.0",
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "contact": {
-            "name": "API Support",
-            "email": "team@workmaple.com"
-        },
+        "contact": {},
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
         "/:app": {
-            "post": {
-                "description": "Pagination CreateAppWithPagination",
+            "get": {
+                "description": "Pagination ReadApp",
                 "consumes": [
                     "application/json"
                 ],
@@ -35,25 +26,24 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "api"
+                    "app/"
                 ],
-                "summary": "Pagination CreateApp",
-                "operationId": "ApiV1LocalizationCreateAppPagination",
+                "summary": "Pagination ReadApp",
+                "operationId": "ApiV1LocalizationReadAppPagination",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
-                        "name": "authorization",
-                        "in": "header"
-                    },
-                    {
                         "description": "app",
                         "name": "app",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -61,9 +51,345 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {
-                                "type": "integer"
-                            }
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "Pagination UpdateApp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/"
+                ],
+                "summary": "Pagination UpdateApp",
+                "operationId": "ApiV1LocalizationUpdateAppPagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "Pagination CreateApp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/"
+                ],
+                "summary": "Pagination CreateApp",
+                "operationId": "ApiV1LocalizationCreateAppPagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "Pagination DeleteApp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/"
+                ],
+                "summary": "Pagination DeleteApp",
+                "operationId": "ApiV1LocalizationDeleteAppPagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/:app/:module": {
+            "get": {
+                "description": "Pagination ReadModule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/module"
+                ],
+                "summary": "Pagination ReadModule",
+                "operationId": "ApiV1LocalizationReadModulePagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "module",
+                        "name": "module",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "Pagination UpdateModule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/module"
+                ],
+                "summary": "Pagination UpdateModule",
+                "operationId": "ApiV1LocalizationUpdateModulePagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "module",
+                        "name": "module",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "Pagination CreateModule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/module"
+                ],
+                "summary": "Pagination CreateModule",
+                "operationId": "ApiV1LocalizationCreateModulePagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "module",
+                        "name": "module",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "Pagination DeleteModule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/module"
+                ],
+                "summary": "Pagination DeleteModule",
+                "operationId": "ApiV1LocalizationDeleteModulePagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "module",
+                        "name": "module",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
                         }
                     },
                     "400": {
@@ -82,8 +408,8 @@ const docTemplate = `{
             }
         },
         "/:app/:module/:language": {
-            "put": {
-                "description": "Pagination UpdateLanguageWithPagination",
+            "get": {
+                "description": "Pagination ReadLanguage",
                 "consumes": [
                     "application/json"
                 ],
@@ -91,43 +417,31 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "api"
+                    "app/module/language"
                 ],
-                "summary": "Pagination UpdateLanguage",
-                "operationId": "ApiV1LocalizationUpdateLanguagePagination",
+                "summary": "Pagination ReadLanguage",
+                "operationId": "ApiV1LocalizationReadLanguagePagination",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
-                        "name": "authorization",
-                        "in": "header"
-                    },
-                    {
                         "description": "app",
                         "name": "app",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "path",
+                        "required": true
                     },
                     {
+                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "path",
+                        "required": true
                     },
                     {
+                        "type": "string",
                         "description": "language",
                         "name": "language",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "path",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -135,9 +449,123 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {
-                                "type": "integer"
-                            }
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "Pagination UpdateLanguage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/module/language"
+                ],
+                "summary": "Pagination UpdateLanguage",
+                "operationId": "ApiV1LocalizationUpdateLanguagePagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "module",
+                        "name": "module",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "language",
+                        "name": "language",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "Pagination CreateLanguage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app/module/language"
+                ],
+                "summary": "Pagination CreateLanguage",
+                "operationId": "ApiV1LocalizationCreateLanguagePagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "app",
+                        "name": "app",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "module",
+                        "name": "module",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "language",
+                        "name": "language",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {}
                         }
                     },
                     "400": {
@@ -155,7 +583,7 @@ const docTemplate = `{
                 }
             },
             "delete": {
-                "description": "Pagination DeleteLanguageWithPagination",
+                "description": "Pagination DeleteLanguage",
                 "consumes": [
                     "application/json"
                 ],
@@ -163,43 +591,31 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "api"
+                    "app/module/language"
                 ],
                 "summary": "Pagination DeleteLanguage",
                 "operationId": "ApiV1LocalizationDeleteLanguagePagination",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
-                        "name": "authorization",
-                        "in": "header"
-                    },
-                    {
                         "description": "app",
                         "name": "app",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "path",
+                        "required": true
                     },
                     {
+                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "path",
+                        "required": true
                     },
                     {
+                        "type": "string",
                         "description": "language",
                         "name": "language",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "in": "path",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -207,9 +623,7 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {
-                                "type": "integer"
-                            }
+                            "items": {}
                         }
                     },
                     "400": {
@@ -233,11 +647,11 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:8081",
-	BasePath:         "/api/v1",
-	Schemes:          []string{"http", "https"},
-	Title:            "Maple Modules API",
-	Description:      "This is a sample server for a Maple Localization API.",
+	Host:             "localhost:8080",
+	BasePath:         "/v1",
+	Schemes:          []string{},
+	Title:            "My API",
+	Description:      "This is a sample API",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 }
