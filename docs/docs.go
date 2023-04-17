@@ -26,8 +26,8 @@ const docTemplate = `{
     "basePath": "{{.BasePath}}",
     "paths": {
         "/:app": {
-            "post": {
-                "description": "Pagination CreateAppWithPagination",
+            "get": {
+                "description": "ReadApp",
                 "consumes": [
                     "application/json"
                 ],
@@ -35,17 +35,155 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "api"
+                    "APP"
                 ],
-                "summary": "Pagination CreateApp",
-                "operationId": "ApiV1LocalizationCreateAppPagination",
+                "summary": "ReadApp",
+                "operationId": "Localization_ReadApp",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
-                        "name": "authorization",
-                        "in": "header"
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
                     },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "UpdateApp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP"
+                ],
+                "summary": "UpdateApp",
+                "operationId": "Localization_UpdateApp",
+                "parameters": [
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "CreateApp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP"
+                ],
+                "summary": "CreateApp",
+                "operationId": "Localization_CreateApp",
+                "parameters": [
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "DeleteApp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP"
+                ],
+                "summary": "DeleteApp",
+                "operationId": "Localization_DeleteApp",
+                "parameters": [
                     {
                         "description": "app",
                         "name": "app",
@@ -81,9 +219,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/:app/:module/:language": {
-            "put": {
-                "description": "Pagination UpdateLanguageWithPagination",
+        "/:app/:module": {
+            "get": {
+                "description": "ReadModule",
                 "consumes": [
                     "application/json"
                 ],
@@ -91,17 +229,373 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "api"
+                    "APP/MODULE"
                 ],
-                "summary": "Pagination UpdateLanguage",
-                "operationId": "ApiV1LocalizationUpdateLanguagePagination",
+                "summary": "ReadModule",
+                "operationId": "Localization_ReadModule",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
-                        "name": "authorization",
-                        "in": "header"
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
+                    {
+                        "description": "module",
+                        "name": "module",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "UpdateModule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP/MODULE"
+                ],
+                "summary": "UpdateModule",
+                "operationId": "Localization_UpdateModule",
+                "parameters": [
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "module",
+                        "name": "module",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "CreateModule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP/MODULE"
+                ],
+                "summary": "CreateModule",
+                "operationId": "Localization_CreateModule",
+                "parameters": [
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "module",
+                        "name": "module",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "DeleteModule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP/MODULE"
+                ],
+                "summary": "DeleteModule",
+                "operationId": "Localization_DeleteModule",
+                "parameters": [
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "module",
+                        "name": "module",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/:app/:module/:language": {
+            "get": {
+                "description": "ReadLanguage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP/MODULE/LANGUAGE"
+                ],
+                "summary": "ReadLanguage",
+                "operationId": "Localization_ReadLanguage",
+                "parameters": [
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "module",
+                        "name": "module",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "language",
+                        "name": "language",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "UpdateLanguage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP/MODULE/LANGUAGE"
+                ],
+                "summary": "UpdateLanguage",
+                "operationId": "Localization_UpdateLanguage",
+                "parameters": [
+                    {
+                        "description": "app",
+                        "name": "app",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "module",
+                        "name": "module",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "language",
+                        "name": "language",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {}
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "CreateLanguage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "APP/MODULE/LANGUAGE"
+                ],
+                "summary": "CreateLanguage",
+                "operationId": "Localization_CreateLanguage",
+                "parameters": [
                     {
                         "description": "app",
                         "name": "app",
@@ -155,7 +649,7 @@ const docTemplate = `{
                 }
             },
             "delete": {
-                "description": "Pagination DeleteLanguageWithPagination",
+                "description": "DeleteLanguage",
                 "consumes": [
                     "application/json"
                 ],
@@ -163,17 +657,11 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "api"
+                    "APP/MODULE/LANGUAGE"
                 ],
-                "summary": "Pagination DeleteLanguage",
-                "operationId": "ApiV1LocalizationDeleteLanguagePagination",
+                "summary": "DeleteLanguage",
+                "operationId": "Localization_DeleteLanguage",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "description": "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=",
-                        "name": "authorization",
-                        "in": "header"
-                    },
                     {
                         "description": "app",
                         "name": "app",

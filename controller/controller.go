@@ -17,11 +17,10 @@ type LocalizationController struct {
  * ===============
  */
 // ShowAccount godoc
-// @Summary      Pagination CreateApp
-// @Description  Pagination CreateAppWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationCreateAppPagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       CreateApp
+// @Description   CreateApp
+// @Tags         APP
+// @Id					  Localization_CreateApp
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -52,11 +51,10 @@ func Json(data string) interface{} {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination ReadApp
-// @Description  Pagination ReadAppWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationReadAppPagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       ReadApp
+// @Description   ReadApp
+// @Tags          APP
+// @Id					  Localization_ReadApp
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -65,7 +63,6 @@ func Json(data string) interface{} {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app [get]
-
 func (l *LocalizationController) ReadApp(c *fiber.Ctx) error {
 	appName := c.Params("app")
 
@@ -82,11 +79,10 @@ func (l *LocalizationController) ReadApp(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination DeleteApp
-// @Description  Pagination DeleteAppWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationDeleteAppPagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       DeleteApp
+// @Description   DeleteApp
+// @Tags          APP
+// @Id					  Localization_DeleteApp
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -95,7 +91,6 @@ func (l *LocalizationController) ReadApp(c *fiber.Ctx) error {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app [delete]
-
 func (l *LocalizationController) DeleteApp(c *fiber.Ctx) error {
 	appName := c.Params("app")
 	err := l.Svc.DeleteApp(appName)
@@ -109,11 +104,10 @@ func (l *LocalizationController) DeleteApp(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination UpdateApp
-// @Description  Pagination UpdateAppWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationUpdateAppPagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       UpdateApp
+// @Description   UpdateApp
+// @Tags          APP
+// @Id					  Localization_UpdateApp
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -122,7 +116,6 @@ func (l *LocalizationController) DeleteApp(c *fiber.Ctx) error {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app [put]
-
 func (l *LocalizationController) UpdateApp(c *fiber.Ctx) error {
 	bod := c.Body()
 	appName := c.Params("app")
@@ -144,11 +137,10 @@ func (l *LocalizationController) UpdateApp(c *fiber.Ctx) error {
  */
 
 // ShowAccount godoc
-// @Summary      Pagination CreateModule
-// @Description  Pagination CreateModuleWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationCreateModulePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       CreateModule
+// @Description   CreateModule
+// @Tags          APP/MODULE
+// @Id					  Localization_CreateModule
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -158,7 +150,6 @@ func (l *LocalizationController) UpdateApp(c *fiber.Ctx) error {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module [post]
-
 func (l *LocalizationController) CreateModule(c *fiber.Ctx) error {
 	module := c.Body()
 	appName := c.Params("app")
@@ -175,11 +166,10 @@ func (l *LocalizationController) CreateModule(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination ReadModule
-// @Description  Pagination ReadModuleWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationReadModulePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       ReadModule
+// @Description   ReadModule
+// @Tags          APP/MODULE
+// @Id					  Localization_ReadModule
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -189,7 +179,6 @@ func (l *LocalizationController) CreateModule(c *fiber.Ctx) error {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module [get]
-
 func (l *LocalizationController) ReadModule(c *fiber.Ctx) error {
 
 	appName := c.Params("app")
@@ -208,11 +197,10 @@ func (l *LocalizationController) ReadModule(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination DeleteModule
-// @Description  Pagination DeleteModuleWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationDeleteModulePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       DeleteModule
+// @Description   DeleteModule
+// @Tags          APP/MODULE
+// @Id					  Localization_DeleteModule
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -222,7 +210,6 @@ func (l *LocalizationController) ReadModule(c *fiber.Ctx) error {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module [delete]
-
 func (l *LocalizationController) DeleteModule(c *fiber.Ctx) error {
 
 	appName := c.Params("app")
@@ -239,11 +226,10 @@ func (l *LocalizationController) DeleteModule(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination UpdateModule
-// @Description  Pagination UpdateModuleWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationUpdateModulePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       UpdateModule
+// @Description   UpdateModule
+// @Tags          APP/MODULE
+// @Id					  Localization_UpdateModule
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -253,7 +239,6 @@ func (l *LocalizationController) DeleteModule(c *fiber.Ctx) error {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module [put]
-
 func (l *LocalizationController) UpdateModule(c *fiber.Ctx) error {
 	module := c.Body()
 	appName := c.Params("app")
@@ -276,11 +261,10 @@ func (l *LocalizationController) UpdateModule(c *fiber.Ctx) error {
  */
 
 // ShowAccount godoc
-// @Summary      Pagination CreateLanguage
-// @Description  Pagination CreateLanguageWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationCreateLanguagePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       CreateLanguage
+// @Description   CreateLanguage
+// @Tags          APP/MODULE/LANGUAGE
+// @Id					  Localization_CreateLanguage
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -291,7 +275,6 @@ func (l *LocalizationController) UpdateModule(c *fiber.Ctx) error {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module/:language [post]
-
 func (l *LocalizationController) CreateLanguage(c *fiber.Ctx) error {
 
 	language := c.Body()
@@ -310,11 +293,10 @@ func (l *LocalizationController) CreateLanguage(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination ReadLanguage
-// @Description  Pagination ReadLanguageWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationReadLanguagePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       ReadLanguage
+// @Description   ReadLanguage
+// @Tags     APP/MODULE/LANGUAGE
+// @Id					  Localization_ReadLanguage
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -325,7 +307,6 @@ func (l *LocalizationController) CreateLanguage(c *fiber.Ctx) error {
 // @Failure      404  {object} error
 // @Failure      500  {object} error
 // @Router       /:app/:module/:language [get]
-
 func (l *LocalizationController) ReadLanguage(c *fiber.Ctx) error {
 	appName := c.Params("app")
 	moduleName := c.Params("module")
@@ -343,11 +324,10 @@ func (l *LocalizationController) ReadLanguage(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination DeleteLanguage
-// @Description  Pagination DeleteLanguageWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationDeleteLanguagePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       DeleteLanguage
+// @Description   DeleteLanguage
+// @Tags     APP/MODULE/LANGUAGE
+// @Id					  Localization_DeleteLanguage
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -374,11 +354,10 @@ func (l *LocalizationController) DeleteLanguage(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary      Pagination UpdateLanguage
-// @Description  Pagination UpdateLanguageWithPagination
-// @Tags         api
-// @Id					  ApiV1LocalizationUpdateLanguagePagination
-// @Param   authorization  header     string     false  "WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8="
+// @Summary       UpdateLanguage
+// @Description   UpdateLanguage
+// @Tags     APP/MODULE/LANGUAGE
+// @Id					  Localization_UpdateLanguage
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"

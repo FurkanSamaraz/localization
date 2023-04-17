@@ -2,12 +2,11 @@ package main
 
 import (
 	"localization/endpoints"
-	"net/http"
 
+	swagger "github.com/arsmn/fiber-swagger/v2"
 	"github.com/bytedance/sonic"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/filesystem"
 )
 
 // @title          Maple Modules API
@@ -30,12 +29,16 @@ func main() {
 	})
 	// Set Middlewares
 	app.Use(cors.New())
-	app.Use(filesystem.New(filesystem.Config{
-		Root:         http.Dir("./locales"),
-		Browse:       true,
-		Index:        "index.html",
-		NotFoundFile: "404.html",
-		MaxAge:       3600,
+	// app.Use(filesystem.New(filesystem.Config{
+	// 	Root:         http.Dir("./locales"),
+	// 	Browse:       true,
+	// 	Index:        "index.html",
+	// 	NotFoundFile: "404.html",
+	// 	MaxAge:       3600,
+	// }))
+	app.Get("/swagger/*", swagger.New(swagger.Config{ // custom
+		URL:         "/swagger/doc.json",
+		DeepLinking: false,
 	}))
 	endpoints.SetupPoints(app)
 

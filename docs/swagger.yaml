@@ -11,16 +11,12 @@ info:
   version: "1.0"
 paths:
   /:app:
-    post:
+    delete:
       consumes:
       - application/json
-      description: Pagination CreateAppWithPagination
-      operationId: ApiV1LocalizationCreateAppPagination
+      description: DeleteApp
+      operationId: Localization_DeleteApp
       parameters:
-      - description: WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=
-        in: header
-        name: authorization
-        type: string
       - description: app
         in: body
         name: app
@@ -45,20 +41,272 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination CreateApp
+      summary: DeleteApp
       tags:
-      - api
+      - APP
+    get:
+      consumes:
+      - application/json
+      description: ReadApp
+      operationId: Localization_ReadApp
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: ReadApp
+      tags:
+      - APP
+    post:
+      consumes:
+      - application/json
+      description: CreateApp
+      operationId: Localization_CreateApp
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: CreateApp
+      tags:
+      - APP
+    put:
+      consumes:
+      - application/json
+      description: UpdateApp
+      operationId: Localization_UpdateApp
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: UpdateApp
+      tags:
+      - APP
+  /:app/:module:
+    delete:
+      consumes:
+      - application/json
+      description: DeleteModule
+      operationId: Localization_DeleteModule
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: module
+        in: body
+        name: module
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: DeleteModule
+      tags:
+      - APP/MODULE
+    get:
+      consumes:
+      - application/json
+      description: ReadModule
+      operationId: Localization_ReadModule
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: module
+        in: body
+        name: module
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: ReadModule
+      tags:
+      - APP/MODULE
+    post:
+      consumes:
+      - application/json
+      description: CreateModule
+      operationId: Localization_CreateModule
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: module
+        in: body
+        name: module
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: CreateModule
+      tags:
+      - APP/MODULE
+    put:
+      consumes:
+      - application/json
+      description: UpdateModule
+      operationId: Localization_UpdateModule
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: module
+        in: body
+        name: module
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: UpdateModule
+      tags:
+      - APP/MODULE
   /:app/:module/:language:
     delete:
       consumes:
       - application/json
-      description: Pagination DeleteLanguageWithPagination
-      operationId: ApiV1LocalizationDeleteLanguagePagination
+      description: DeleteLanguage
+      operationId: Localization_DeleteLanguage
       parameters:
-      - description: WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=
-        in: header
-        name: authorization
-        type: string
       - description: app
         in: body
         name: app
@@ -95,19 +343,105 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination DeleteLanguage
+      summary: DeleteLanguage
       tags:
-      - api
+      - APP/MODULE/LANGUAGE
+    get:
+      consumes:
+      - application/json
+      description: ReadLanguage
+      operationId: Localization_ReadLanguage
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: module
+        in: body
+        name: module
+        required: true
+        schema:
+          type: string
+      - description: language
+        in: body
+        name: language
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: ReadLanguage
+      tags:
+      - APP/MODULE/LANGUAGE
+    post:
+      consumes:
+      - application/json
+      description: CreateLanguage
+      operationId: Localization_CreateLanguage
+      parameters:
+      - description: app
+        in: body
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: module
+        in: body
+        name: module
+        required: true
+        schema:
+          type: string
+      - description: language
+        in: body
+        name: language
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: integer
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: CreateLanguage
+      tags:
+      - APP/MODULE/LANGUAGE
     put:
       consumes:
       - application/json
-      description: Pagination UpdateLanguageWithPagination
-      operationId: ApiV1LocalizationUpdateLanguagePagination
+      description: UpdateLanguage
+      operationId: Localization_UpdateLanguage
       parameters:
-      - description: WCNX0RbRD8ezrezDp9IHZ3tYdiZFb_7eu5pphTcKME8=
-        in: header
-        name: authorization
-        type: string
       - description: app
         in: body
         name: app
@@ -144,9 +478,9 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination UpdateLanguage
+      summary: UpdateLanguage
       tags:
-      - api
+      - APP/MODULE/LANGUAGE
 produces:
 - application/json
 schemes:
