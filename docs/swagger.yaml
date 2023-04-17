@@ -1,30 +1,36 @@
-basePath: /v1
-host: localhost:8080
+basePath: /api/v1
+consumes:
+- application/json
+host: localhost:8081
 info:
-  contact: {}
-  description: This is a sample API
-  title: My API
+  contact:
+    email: team@workmaple.com
+    name: API Support
+  description: This is a sample server for a Maple Localization API.
+  title: Maple Modules API
   version: "1.0"
 paths:
   /:app:
     delete:
       consumes:
       - application/json
-      description: Pagination DeleteApp
-      operationId: ApiV1LocalizationDeleteAppPagination
+      description: DeleteApp
+      operationId: Localization_DeleteApp
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -35,32 +41,29 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination DeleteApp
+      summary: DeleteApp
       tags:
-      - app/
+      - APP
     get:
       consumes:
       - application/json
-      description: Pagination ReadApp
-      operationId: ApiV1LocalizationReadAppPagination
+      description: ReadApp
+      operationId: Localization_ReadApp
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
-      - description: app
-        in: path
-        name: app
-        required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -71,27 +74,29 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination ReadApp
+      summary: ReadApp
       tags:
-      - app/
+      - APP
     post:
       consumes:
       - application/json
-      description: Pagination CreateApp
-      operationId: ApiV1LocalizationCreateAppPagination
+      description: CreateApp
+      operationId: Localization_CreateApp
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -102,27 +107,29 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination CreateApp
+      summary: CreateApp
       tags:
-      - app/
+      - APP
     put:
       consumes:
       - application/json
-      description: Pagination UpdateApp
-      operationId: ApiV1LocalizationUpdateAppPagination
+      description: UpdateApp
+      operationId: Localization_UpdateApp
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -133,33 +140,36 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination UpdateApp
+      summary: UpdateApp
       tags:
-      - app/
+      - APP
   /:app/:module:
     delete:
       consumes:
       - application/json
-      description: Pagination DeleteModule
-      operationId: ApiV1LocalizationDeleteModulePagination
+      description: DeleteModule
+      operationId: Localization_DeleteModule
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       - description: module
-        in: path
+        in: body
         name: module
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -170,32 +180,35 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination DeleteModule
+      summary: DeleteModule
       tags:
-      - app/module
+      - APP/MODULE
     get:
       consumes:
       - application/json
-      description: Pagination ReadModule
-      operationId: ApiV1LocalizationReadModulePagination
+      description: ReadModule
+      operationId: Localization_ReadModule
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       - description: module
-        in: path
+        in: body
         name: module
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -206,32 +219,35 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination ReadModule
+      summary: ReadModule
       tags:
-      - app/module
+      - APP/MODULE
     post:
       consumes:
       - application/json
-      description: Pagination CreateModule
-      operationId: ApiV1LocalizationCreateModulePagination
+      description: CreateModule
+      operationId: Localization_CreateModule
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       - description: module
-        in: path
+        in: body
         name: module
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -242,32 +258,35 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination CreateModule
+      summary: CreateModule
       tags:
-      - app/module
+      - APP/MODULE
     put:
       consumes:
       - application/json
-      description: Pagination UpdateModule
-      operationId: ApiV1LocalizationUpdateModulePagination
+      description: UpdateModule
+      operationId: Localization_UpdateModule
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       - description: module
-        in: path
+        in: body
         name: module
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -278,38 +297,42 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination UpdateModule
+      summary: UpdateModule
       tags:
-      - app/module
+      - APP/MODULE
   /:app/:module/:language:
     delete:
       consumes:
       - application/json
-      description: Pagination DeleteLanguage
-      operationId: ApiV1LocalizationDeleteLanguagePagination
+      description: DeleteLanguage
+      operationId: Localization_DeleteLanguage
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       - description: module
-        in: path
+        in: body
         name: module
         required: true
-        type: string
+        schema:
+          type: string
       - description: language
-        in: path
+        in: body
         name: language
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -320,37 +343,41 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination DeleteLanguage
+      summary: DeleteLanguage
       tags:
-      - app/module/language
+      - APP/MODULE/LANGUAGE
     get:
       consumes:
       - application/json
-      description: Pagination ReadLanguage
-      operationId: ApiV1LocalizationReadLanguagePagination
+      description: ReadLanguage
+      operationId: Localization_ReadLanguage
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       - description: module
-        in: path
+        in: body
         name: module
         required: true
-        type: string
+        schema:
+          type: string
       - description: language
-        in: path
+        in: body
         name: language
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -361,37 +388,41 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination ReadLanguage
+      summary: ReadLanguage
       tags:
-      - app/module/language
+      - APP/MODULE/LANGUAGE
     post:
       consumes:
       - application/json
-      description: Pagination CreateLanguage
-      operationId: ApiV1LocalizationCreateLanguagePagination
+      description: CreateLanguage
+      operationId: Localization_CreateLanguage
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       - description: module
-        in: path
+        in: body
         name: module
         required: true
-        type: string
+        schema:
+          type: string
       - description: language
-        in: path
+        in: body
         name: language
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -402,37 +433,41 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination CreateLanguage
+      summary: CreateLanguage
       tags:
-      - app/module/language
+      - APP/MODULE/LANGUAGE
     put:
       consumes:
       - application/json
-      description: Pagination UpdateLanguage
-      operationId: ApiV1LocalizationUpdateLanguagePagination
+      description: UpdateLanguage
+      operationId: Localization_UpdateLanguage
       parameters:
       - description: app
-        in: path
+        in: body
         name: app
         required: true
-        type: string
+        schema:
+          type: string
       - description: module
-        in: path
+        in: body
         name: module
         required: true
-        type: string
+        schema:
+          type: string
       - description: language
-        in: path
+        in: body
         name: language
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            items: {}
+            items:
+              type: integer
             type: array
         "400":
           description: Bad Request
@@ -443,7 +478,12 @@ paths:
         "500":
           description: Internal Server Error
           schema: {}
-      summary: Pagination UpdateLanguage
+      summary: UpdateLanguage
       tags:
-      - app/module/language
+      - APP/MODULE/LANGUAGE
+produces:
+- application/json
+schemes:
+- http
+- https
 swagger: "2.0"

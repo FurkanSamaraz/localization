@@ -6,11 +6,20 @@ import "github.com/swaggo/swag"
 
 const docTemplate = `{
     "schemes": {{ marshal .Schemes }},
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
     "swagger": "2.0",
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "contact": {},
+        "contact": {
+            "name": "API Support",
+            "email": "team@workmaple.com"
+        },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
@@ -18,7 +27,7 @@ const docTemplate = `{
     "paths": {
         "/:app": {
             "get": {
-                "description": "Pagination ReadApp",
+                "description": "ReadApp",
                 "consumes": [
                     "application/json"
                 ],
@@ -26,24 +35,19 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/"
+                    "APP"
                 ],
-                "summary": "Pagination ReadApp",
-                "operationId": "ApiV1LocalizationReadAppPagination",
+                "summary": "ReadApp",
+                "operationId": "Localization_ReadApp",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "app",
-                        "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -51,7 +55,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -69,7 +75,7 @@ const docTemplate = `{
                 }
             },
             "put": {
-                "description": "Pagination UpdateApp",
+                "description": "UpdateApp",
                 "consumes": [
                     "application/json"
                 ],
@@ -77,17 +83,19 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/"
+                    "APP"
                 ],
-                "summary": "Pagination UpdateApp",
-                "operationId": "ApiV1LocalizationUpdateAppPagination",
+                "summary": "UpdateApp",
+                "operationId": "Localization_UpdateApp",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -95,7 +103,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -113,7 +123,7 @@ const docTemplate = `{
                 }
             },
             "post": {
-                "description": "Pagination CreateApp",
+                "description": "CreateApp",
                 "consumes": [
                     "application/json"
                 ],
@@ -121,17 +131,19 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/"
+                    "APP"
                 ],
-                "summary": "Pagination CreateApp",
-                "operationId": "ApiV1LocalizationCreateAppPagination",
+                "summary": "CreateApp",
+                "operationId": "Localization_CreateApp",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -139,7 +151,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -157,7 +171,7 @@ const docTemplate = `{
                 }
             },
             "delete": {
-                "description": "Pagination DeleteApp",
+                "description": "DeleteApp",
                 "consumes": [
                     "application/json"
                 ],
@@ -165,17 +179,19 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/"
+                    "APP"
                 ],
-                "summary": "Pagination DeleteApp",
-                "operationId": "ApiV1LocalizationDeleteAppPagination",
+                "summary": "DeleteApp",
+                "operationId": "Localization_DeleteApp",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -183,7 +199,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -203,7 +221,7 @@ const docTemplate = `{
         },
         "/:app/:module": {
             "get": {
-                "description": "Pagination ReadModule",
+                "description": "ReadModule",
                 "consumes": [
                     "application/json"
                 ],
@@ -211,24 +229,28 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/module"
+                    "APP/MODULE"
                 ],
-                "summary": "Pagination ReadModule",
-                "operationId": "ApiV1LocalizationReadModulePagination",
+                "summary": "ReadModule",
+                "operationId": "Localization_ReadModule",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -236,7 +258,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -254,7 +278,7 @@ const docTemplate = `{
                 }
             },
             "put": {
-                "description": "Pagination UpdateModule",
+                "description": "UpdateModule",
                 "consumes": [
                     "application/json"
                 ],
@@ -262,24 +286,28 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/module"
+                    "APP/MODULE"
                 ],
-                "summary": "Pagination UpdateModule",
-                "operationId": "ApiV1LocalizationUpdateModulePagination",
+                "summary": "UpdateModule",
+                "operationId": "Localization_UpdateModule",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -287,7 +315,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -305,7 +335,7 @@ const docTemplate = `{
                 }
             },
             "post": {
-                "description": "Pagination CreateModule",
+                "description": "CreateModule",
                 "consumes": [
                     "application/json"
                 ],
@@ -313,24 +343,28 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/module"
+                    "APP/MODULE"
                 ],
-                "summary": "Pagination CreateModule",
-                "operationId": "ApiV1LocalizationCreateModulePagination",
+                "summary": "CreateModule",
+                "operationId": "Localization_CreateModule",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -338,7 +372,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -356,7 +392,7 @@ const docTemplate = `{
                 }
             },
             "delete": {
-                "description": "Pagination DeleteModule",
+                "description": "DeleteModule",
                 "consumes": [
                     "application/json"
                 ],
@@ -364,24 +400,28 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/module"
+                    "APP/MODULE"
                 ],
-                "summary": "Pagination DeleteModule",
-                "operationId": "ApiV1LocalizationDeleteModulePagination",
+                "summary": "DeleteModule",
+                "operationId": "Localization_DeleteModule",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -389,7 +429,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -409,7 +451,7 @@ const docTemplate = `{
         },
         "/:app/:module/:language": {
             "get": {
-                "description": "Pagination ReadLanguage",
+                "description": "ReadLanguage",
                 "consumes": [
                     "application/json"
                 ],
@@ -417,31 +459,37 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/module/language"
+                    "APP/MODULE/LANGUAGE"
                 ],
-                "summary": "Pagination ReadLanguage",
-                "operationId": "ApiV1LocalizationReadLanguagePagination",
+                "summary": "ReadLanguage",
+                "operationId": "Localization_ReadLanguage",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "language",
                         "name": "language",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -449,7 +497,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -467,7 +517,7 @@ const docTemplate = `{
                 }
             },
             "put": {
-                "description": "Pagination UpdateLanguage",
+                "description": "UpdateLanguage",
                 "consumes": [
                     "application/json"
                 ],
@@ -475,31 +525,37 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/module/language"
+                    "APP/MODULE/LANGUAGE"
                 ],
-                "summary": "Pagination UpdateLanguage",
-                "operationId": "ApiV1LocalizationUpdateLanguagePagination",
+                "summary": "UpdateLanguage",
+                "operationId": "Localization_UpdateLanguage",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "language",
                         "name": "language",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -507,7 +563,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -525,7 +583,7 @@ const docTemplate = `{
                 }
             },
             "post": {
-                "description": "Pagination CreateLanguage",
+                "description": "CreateLanguage",
                 "consumes": [
                     "application/json"
                 ],
@@ -533,31 +591,37 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/module/language"
+                    "APP/MODULE/LANGUAGE"
                 ],
-                "summary": "Pagination CreateLanguage",
-                "operationId": "ApiV1LocalizationCreateLanguagePagination",
+                "summary": "CreateLanguage",
+                "operationId": "Localization_CreateLanguage",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "language",
                         "name": "language",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -565,7 +629,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -583,7 +649,7 @@ const docTemplate = `{
                 }
             },
             "delete": {
-                "description": "Pagination DeleteLanguage",
+                "description": "DeleteLanguage",
                 "consumes": [
                     "application/json"
                 ],
@@ -591,31 +657,37 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app/module/language"
+                    "APP/MODULE/LANGUAGE"
                 ],
-                "summary": "Pagination DeleteLanguage",
-                "operationId": "ApiV1LocalizationDeleteLanguagePagination",
+                "summary": "DeleteLanguage",
+                "operationId": "Localization_DeleteLanguage",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "app",
                         "name": "app",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "module",
                         "name": "module",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "type": "string",
                         "description": "language",
                         "name": "language",
-                        "in": "path",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -623,7 +695,9 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "type": "array",
-                            "items": {}
+                            "items": {
+                                "type": "integer"
+                            }
                         }
                     },
                     "400": {
@@ -647,11 +721,11 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:8080",
-	BasePath:         "/v1",
-	Schemes:          []string{},
-	Title:            "My API",
-	Description:      "This is a sample API",
+	Host:             "localhost:8081",
+	BasePath:         "/api/v1",
+	Schemes:          []string{"http", "https"},
+	Title:            "Maple Modules API",
+	Description:      "This is a sample server for a Maple Localization API.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 }

@@ -3,13 +3,9 @@ package endpoints
 import (
 	db "localization/config"
 	"localization/controller"
-	_ "localization/docs"
-
 	repository "localization/repository"
 	storage "localization/storage"
 	utils "localization/utils"
-
-	swagger "github.com/arsmn/fiber-swagger/v2"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -18,10 +14,7 @@ func SetupPoints(app *fiber.App) {
 
 	mode := storage.Storage{Utils: &utils.Utils{}, Repo: repository.RepositoryDB{DB: db.Collection()}}
 	point := controller.LocalizationController{Svc: mode}
-	app.Get("/swagger/*", swagger.New(swagger.Config{ // custom
-		URL:         "/swagger/doc.json",
-		DeepLinking: false,
-	}))
+
 	{
 
 		app.Get("/:app", point.ReadApp)
