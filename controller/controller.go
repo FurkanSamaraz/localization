@@ -11,16 +11,11 @@ type LocalizationController struct {
 	Svc storage.Storage
 }
 
-/*
- * ===============
- * App
- * ===============
- */
 // ShowAccount godoc
-// @Summary       CreateApp
-// @Description   CreateApp
+// @Summary      CreateApp
+// @Description  CreateApp
 // @Tags         APP
-// @Id					  Localization_CreateApp
+// @Id			 Localization_CreateApp
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -51,10 +46,10 @@ func Json(data string) interface{} {
 }
 
 // ShowAccount godoc
-// @Summary       ReadApp
-// @Description   ReadApp
-// @Tags          APP
-// @Id					  Localization_ReadApp
+// @Summary      ReadApp
+// @Description  ReadApp
+// @Tags         APP
+// @Id			 Localization_ReadApp
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -79,10 +74,10 @@ func (l *LocalizationController) ReadApp(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary       DeleteApp
-// @Description   DeleteApp
-// @Tags          APP
-// @Id					  Localization_DeleteApp
+// @Summary      DeleteApp
+// @Description  DeleteApp
+// @Tags         APP
+// @Id			 Localization_DeleteApp
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -130,17 +125,11 @@ func (l *LocalizationController) UpdateApp(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(err)
 }
 
-/*
- * ===============
- * Module
- * ===============
- */
-
 // ShowAccount godoc
-// @Summary       CreateModule
-// @Description   CreateModule
-// @Tags          APP/MODULE
-// @Id					  Localization_CreateModule
+// @Summary      CreateModule
+// @Description  CreateModule
+// @Tags         APP/MODULE
+// @Id			 Localization_CreateModule
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -166,10 +155,10 @@ func (l *LocalizationController) CreateModule(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary       ReadModule
-// @Description   ReadModule
-// @Tags          APP/MODULE
-// @Id					  Localization_ReadModule
+// @Summary      ReadModule
+// @Description  ReadModule
+// @Tags         APP/MODULE
+// @Id			 Localization_ReadModule
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -197,10 +186,10 @@ func (l *LocalizationController) ReadModule(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary       DeleteModule
-// @Description   DeleteModule
-// @Tags          APP/MODULE
-// @Id					  Localization_DeleteModule
+// @Summary      DeleteModule
+// @Description  DeleteModule
+// @Tags         APP/MODULE
+// @Id			 Localization_DeleteModule
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -226,10 +215,10 @@ func (l *LocalizationController) DeleteModule(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary       UpdateModule
-// @Description   UpdateModule
-// @Tags          APP/MODULE
-// @Id					  Localization_UpdateModule
+// @Summary      UpdateModule
+// @Description  UpdateModule
+// @Tags         APP/MODULE
+// @Id	    	 Localization_UpdateModule
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -254,17 +243,11 @@ func (l *LocalizationController) UpdateModule(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(err)
 }
 
-/*
- * ===============
- * Language
- * ===============
- */
-
 // ShowAccount godoc
-// @Summary       CreateLanguage
-// @Description   CreateLanguage
-// @Tags          APP/MODULE/LANGUAGE
-// @Id					  Localization_CreateLanguage
+// @Summary      CreateLanguage
+// @Description  CreateLanguage
+// @Tags         APP/MODULE/LANGUAGE
+// @Id			 Localization_CreateLanguage
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -293,10 +276,10 @@ func (l *LocalizationController) CreateLanguage(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary       ReadLanguage
-// @Description   ReadLanguage
-// @Tags     APP/MODULE/LANGUAGE
-// @Id					  Localization_ReadLanguage
+// @Summary      ReadLanguage
+// @Description  ReadLanguage
+// @Tags         APP/MODULE/LANGUAGE
+// @Id			 Localization_ReadLanguage
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -324,10 +307,10 @@ func (l *LocalizationController) ReadLanguage(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary       DeleteLanguage
-// @Description   DeleteLanguage
-// @Tags     APP/MODULE/LANGUAGE
-// @Id					  Localization_DeleteLanguage
+// @Summary      DeleteLanguage
+// @Description  DeleteLanguage
+// @Tags         APP/MODULE/LANGUAGE
+// @Id			 Localization_DeleteLanguage
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -354,10 +337,10 @@ func (l *LocalizationController) DeleteLanguage(c *fiber.Ctx) error {
 }
 
 // ShowAccount godoc
-// @Summary       UpdateLanguage
-// @Description   UpdateLanguage
-// @Tags     APP/MODULE/LANGUAGE
-// @Id					  Localization_UpdateLanguage
+// @Summary      UpdateLanguage
+// @Description  UpdateLanguage
+// @Tags     	 APP/MODULE/LANGUAGE
+// @Id			 Localization_UpdateLanguage
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
