@@ -48,7 +48,7 @@ paths:
       consumes:
       - application/json
       description: ReadApp
-      operationId: Localization_ReadApp
+      operationId: Localization_App
       parameters:
       - description: app
         in: body
@@ -81,7 +81,7 @@ paths:
       consumes:
       - application/json
       description: CreateApp
-      operationId: Localization_CreateApp
+      operationId: Localization_App
       parameters:
       - description: app
         in: body
@@ -95,9 +95,7 @@ paths:
         "200":
           description: OK
           schema:
-            items:
-              type: integer
-            type: array
+            type: string
         "400":
           description: Bad Request
           schema: {}
@@ -114,7 +112,7 @@ paths:
       consumes:
       - application/json
       description: UpdateApp
-      operationId: Localization_UpdateApp
+      operationId: Localization_App
       parameters:
       - description: app
         in: body
@@ -148,7 +146,7 @@ paths:
       consumes:
       - application/json
       description: DeleteModule
-      operationId: Localization_DeleteModule
+      operationId: Localization_Module
       parameters:
       - description: app
         in: body
@@ -187,7 +185,7 @@ paths:
       consumes:
       - application/json
       description: ReadModule
-      operationId: Localization_ReadModule
+      operationId: Localization_Module
       parameters:
       - description: app
         in: body
@@ -226,7 +224,7 @@ paths:
       consumes:
       - application/json
       description: CreateModule
-      operationId: Localization_CreateModule
+      operationId: Localization_Module
       parameters:
       - description: app
         in: body
@@ -265,7 +263,7 @@ paths:
       consumes:
       - application/json
       description: UpdateModule
-      operationId: Localization_UpdateModule
+      operationId: Localization_Module
       parameters:
       - description: app
         in: body
@@ -395,7 +393,7 @@ paths:
       consumes:
       - application/json
       description: CreateLanguage
-      operationId: Localization_CreateLanguage
+      operationId: Localization_Language
       parameters:
       - description: app
         in: body

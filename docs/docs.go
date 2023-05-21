@@ -38,7 +38,7 @@ const docTemplate = `{
                     "APP"
                 ],
                 "summary": "ReadApp",
-                "operationId": "Localization_ReadApp",
+                "operationId": "Localization_App",
                 "parameters": [
                     {
                         "description": "app",
@@ -86,7 +86,7 @@ const docTemplate = `{
                     "APP"
                 ],
                 "summary": "UpdateApp",
-                "operationId": "Localization_UpdateApp",
+                "operationId": "Localization_App",
                 "parameters": [
                     {
                         "description": "app",
@@ -134,7 +134,7 @@ const docTemplate = `{
                     "APP"
                 ],
                 "summary": "CreateApp",
-                "operationId": "Localization_CreateApp",
+                "operationId": "Localization_App",
                 "parameters": [
                     {
                         "description": "app",
@@ -150,10 +150,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "integer"
-                            }
+                            "type": "string"
                         }
                     },
                     "400": {
@@ -232,7 +229,7 @@ const docTemplate = `{
                     "APP/MODULE"
                 ],
                 "summary": "ReadModule",
-                "operationId": "Localization_ReadModule",
+                "operationId": "Localization_Module",
                 "parameters": [
                     {
                         "description": "app",
@@ -289,7 +286,7 @@ const docTemplate = `{
                     "APP/MODULE"
                 ],
                 "summary": "UpdateModule",
-                "operationId": "Localization_UpdateModule",
+                "operationId": "Localization_Module",
                 "parameters": [
                     {
                         "description": "app",
@@ -346,7 +343,7 @@ const docTemplate = `{
                     "APP/MODULE"
                 ],
                 "summary": "CreateModule",
-                "operationId": "Localization_CreateModule",
+                "operationId": "Localization_Module",
                 "parameters": [
                     {
                         "description": "app",
@@ -403,7 +400,7 @@ const docTemplate = `{
                     "APP/MODULE"
                 ],
                 "summary": "DeleteModule",
-                "operationId": "Localization_DeleteModule",
+                "operationId": "Localization_Module",
                 "parameters": [
                     {
                         "description": "app",
@@ -594,7 +591,7 @@ const docTemplate = `{
                     "APP/MODULE/LANGUAGE"
                 ],
                 "summary": "CreateLanguage",
-                "operationId": "Localization_CreateLanguage",
+                "operationId": "Localization_Language",
                 "parameters": [
                     {
                         "description": "app",

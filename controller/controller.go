@@ -3,6 +3,7 @@ package controller
 import (
 	"encoding/json"
 	storage "localization/storage"
+	_ "localization/structures"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -15,11 +16,11 @@ type LocalizationController struct {
 // @Summary      CreateApp
 // @Description  CreateApp
 // @Tags         APP
-// @Id			 Localization_CreateApp
+// @Id			 Localization_App
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
-// @Success      200  {array}  byte
+// @Success      200  {string} byte
 // @Failure      400  {object} error
 // @Failure      404  {object} error
 // @Failure      500  {object} error
@@ -49,7 +50,7 @@ func Json(data string) interface{} {
 // @Summary      ReadApp
 // @Description  ReadApp
 // @Tags         APP
-// @Id			 Localization_ReadApp
+// @Id			 Localization_App
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -102,7 +103,7 @@ func (l *LocalizationController) DeleteApp(c *fiber.Ctx) error {
 // @Summary       UpdateApp
 // @Description   UpdateApp
 // @Tags          APP
-// @Id					  Localization_UpdateApp
+// @Id					  Localization_App
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -129,7 +130,7 @@ func (l *LocalizationController) UpdateApp(c *fiber.Ctx) error {
 // @Summary      CreateModule
 // @Description  CreateModule
 // @Tags         APP/MODULE
-// @Id			 Localization_CreateModule
+// @Id			 Localization_Module
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -142,6 +143,7 @@ func (l *LocalizationController) UpdateApp(c *fiber.Ctx) error {
 func (l *LocalizationController) CreateModule(c *fiber.Ctx) error {
 	module := c.Body()
 	appName := c.Params("app")
+
 	moduleName := c.Params("module")
 
 	err := l.Svc.CreateModule(appName, moduleName, module)
@@ -158,7 +160,7 @@ func (l *LocalizationController) CreateModule(c *fiber.Ctx) error {
 // @Summary      ReadModule
 // @Description  ReadModule
 // @Tags         APP/MODULE
-// @Id			 Localization_ReadModule
+// @Id			 Localization_Module
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -189,7 +191,7 @@ func (l *LocalizationController) ReadModule(c *fiber.Ctx) error {
 // @Summary      DeleteModule
 // @Description  DeleteModule
 // @Tags         APP/MODULE
-// @Id			 Localization_DeleteModule
+// @Id			 Localization_Module
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -218,7 +220,7 @@ func (l *LocalizationController) DeleteModule(c *fiber.Ctx) error {
 // @Summary      UpdateModule
 // @Description  UpdateModule
 // @Tags         APP/MODULE
-// @Id	    	 Localization_UpdateModule
+// @Id	    	 Localization_Module
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
@@ -247,7 +249,7 @@ func (l *LocalizationController) UpdateModule(c *fiber.Ctx) error {
 // @Summary      CreateLanguage
 // @Description  CreateLanguage
 // @Tags         APP/MODULE/LANGUAGE
-// @Id			 Localization_CreateLanguage
+// @Id			 Localization_Language
 // @Accept       json
 // @Produce      json
 // @Param app body string true "app"
