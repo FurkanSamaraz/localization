@@ -1,4 +1,4 @@
-package endpoints
+package router
 
 import (
 	"localization/controller"
