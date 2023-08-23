@@ -1,2 +1,2 @@
 # localization
-Maple Localization Service Provider
+Localization Service Provider
