@@ -1,7 +1,7 @@
-Localization Service Provider Projesi
+# Localization Service Provider Projesi
 Bu proje, çoklu dil desteği sağlayan bir hizmet sağlayıcısının temel yapısını içerir. Bu hizmet sağlayıcısı, uygulamaların farklı dillerde metinleri yönetmelerine ve lokalizasyon işlemlerini gerçekleştirmelerine yardımcı olmak için tasarlanmıştır.
 
-Proje Yapısı
+## Proje Yapısı
 Projede aşağıdaki ana dizinler ve dosyalar bulunmaktadır:
 
 controller: API endpoint'lerini yöneten iş mantığı kodlarının bulunduğu dizin.
@@ -32,7 +32,7 @@ go.mod ve go.sum: Projenin bağımlılıklarının yönetildiği Go modül dosya
 
 main.go: Projenin ana başlangıç noktası olan dosya.
 
-Kullanım
+## Kullanım
 Proje, çoklu dil desteği sağlayan bir hizmet sağlayıcısının temel altyapısını içerdiğinden, farklı uygulamaların farklı dillerdeki çeviri ihtiyaçlarını yönetmek için kullanılabilir. Temel API endpoint'leri aracılığıyla uygulama, dil modülü ve dil bazlı çeviriler oluşturabilir, güncelleyebilir, okuyabilir ve silebilirsiniz.
 
 Projenin çalıştırılması ve test edilmesi hakkında ayrıntılı bilgi için main.go dosyasını inceleyebilirsiniz.
